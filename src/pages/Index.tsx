@@ -10,7 +10,7 @@ import { motion } from 'framer-motion';
 const Index = () => {
   return (
     <PageTransition>
-      <div className="min-h-screen bg-aventum-navy flex flex-col">
+      <div className="min-h-screen bg-gradient-to-b from-[#232d3e] to-[#2a3447] flex flex-col">
         <motion.div 
           className="absolute top-0 left-0 w-full h-[30vh] bg-gradient-to-b from-black/30 to-transparent z-0"
           initial={{ opacity: 0 }}

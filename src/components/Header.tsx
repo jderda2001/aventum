@@ -12,7 +12,15 @@ const Header = () => {
     >
       <div className="max-w-7xl w-full flex flex-col md:flex-row justify-between items-center gap-4">
         <div className="flex items-center">
-          <h1 className="text-aventum-gold font-playfair text-3xl font-bold tracking-tight">Aventum</h1>
+          <img 
+            src="/lovable-uploads/7be79855-c373-4b95-9a81-683f298bbdff.png" 
+            alt="Aventum Logo" 
+            className="h-16 w-auto mr-3"
+          />
+          <div className="flex flex-col">
+            <h1 className="text-aventum-gold font-playfair text-3xl font-bold tracking-tight">Aventum</h1>
+            <span className="text-aventum-gold text-sm">Kancelaria Prawna</span>
+          </div>
         </div>
         <p className="text-white/80 text-sm md:text-base font-light italic">
           Proste rozwiązania skomplikowanych problemów
