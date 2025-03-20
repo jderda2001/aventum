@@ -14,7 +14,7 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
         <div className="flex items-center text-center md:text-left">
           <img 
-            src="/lovable-uploads/7be79855-c373-4b95-9a81-683f298bbdff.png" 
+            src="/lovable-uploads/08a9fa85-20c5-4e9c-b1ef-957b5825aa04.png" 
             alt="Aventum Logo" 
             className="h-10 w-auto mr-3 hidden md:block"
           />
