@@ -1,3 +1,6 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -35,19 +38,12 @@
     --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
@@ -96,6 +92,37 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-aventum-navy text-white font-inter overflow-x-hidden;
+  }
+
+  html {
+    font-family: 'Inter', sans-serif;
+    scroll-behavior: smooth;
+  }
+
+  .font-playfair {
+    font-family: 'Playfair Display', serif;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-white/5 backdrop-blur-sm border border-white/10 shadow-xl;
+  }
+  
+  .shimmer {
+    @apply relative overflow-hidden before:absolute before:inset-0 before:-translate-x-full before:animate-shimmer before:bg-gradient-to-r before:from-transparent before:via-white/10 before:to-transparent;
+  }
+
+  .btn-gold {
+    @apply bg-aventum-gold text-aventum-navy font-semibold px-6 py-3 rounded-md shadow-lg hover:brightness-110 transition-all duration-300 ease-in-out active:scale-[0.98];
+  }
+
+  .input-field {
+    @apply w-full px-4 py-3 bg-white/10 border border-white/20 rounded-md focus:outline-none focus:ring-2 focus:ring-aventum-gold/50 text-white placeholder:text-white/60 backdrop-blur-sm transition-all duration-300;
+  }
+
+  .checkbox-gold {
+    @apply h-5 w-5 rounded-sm border-2 border-aventum-gold/70 checked:bg-aventum-gold checked:border-aventum-gold focus:outline-none focus:ring-1 focus:ring-offset-0 focus:ring-aventum-gold/30 text-aventum-navy transition-all duration-200;
   }
 }
