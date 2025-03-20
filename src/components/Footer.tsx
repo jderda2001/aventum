@@ -6,7 +6,7 @@ import { Mail, MapPin, Phone } from 'lucide-react';
 const Footer = () => {
   return (
     <motion.footer 
-      className="w-full px-6 md:px-8 py-8 border-t border-white/10"
+      className="w-full px-6 md:px-8 py-8 border-t border-white/10 bg-aventum-navy/80 backdrop-blur-sm"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5, delay: 0.6 }}

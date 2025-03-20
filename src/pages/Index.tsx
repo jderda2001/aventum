@@ -12,9 +12,9 @@ const Index = () => {
     <PageTransition>
       <div className="min-h-screen bg-aventum-navy flex flex-col">
         <motion.div 
-          className="absolute top-0 left-0 w-full h-[30vh] bg-gradient-to-b from-black/30 to-transparent z-0"
+          className="absolute top-0 left-0 w-full h-[70vh] bg-[url('/lovable-uploads/ee73c2ad-ba6e-488c-8bdc-54961689150a.png')] bg-cover bg-center opacity-5 z-0"
           initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
+          animate={{ opacity: 0.05 }}
           transition={{ duration: 1, delay: 0.5 }}
         />
         

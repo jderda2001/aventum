@@ -2,6 +2,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import EbookMockup from './EbookMockup';
+import { Phone } from 'lucide-react';
 
 const Hero = () => {
   return (
@@ -53,6 +54,18 @@ const Hero = () => {
                 </motion.li>
               ))}
             </ul>
+          </motion.div>
+          
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.6 }}
+            className="pt-4"
+          >
+            <a href="tel:+48123456789" className="flex items-center gap-2 text-white hover:text-aventum-gold transition-colors">
+              <Phone size={18} className="text-aventum-gold" />
+              <span>+48 123 456 789</span>
+            </a>
           </motion.div>
         </div>
 
