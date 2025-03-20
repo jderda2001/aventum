@@ -51,7 +51,7 @@ const LeadForm = () => {
       <div className="max-w-md w-full">
         {!isSuccess ? (
           <motion.div 
-            className="glass rounded-xl p-6 md:p-8 w-full bg-white/10"
+            className="glass rounded-xl p-6 md:p-8 w-full"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.5 }}
