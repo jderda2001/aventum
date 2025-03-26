@@ -1,17 +1,21 @@
+
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Check, Download } from 'lucide-react';
+import { Check, Download, Phone } from 'lucide-react';
 import { toast } from 'sonner';
+
 const LeadForm = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    phone: '',
     company: '',
     rodoConsent: false,
     marketingConsent: false
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const {
       name,
@@ -24,29 +28,57 @@ const LeadForm = () => {
       [name]: type === 'checkbox' ? checked : value
     }));
   };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.rodoConsent) {
       toast.error("Wyrażenie zgody RODO jest wymagane");
       return;
     }
+    
     setIsSubmitting(true);
 
-    // Simulate API call
-    setTimeout(() => {
-      setIsSubmitting(false);
+    try {
+      // Send data to the webhook
+      const response = await fetch('https://hook.eu2.make.com/on6bqbrdydlx53riw544q65v9uc9sp4l', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          company: formData.company,
+          marketingConsent: formData.marketingConsent,
+          source: window.location.href,
+          timestamp: new Date().toISOString()
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+
       setIsSuccess(true);
       toast.success("Dziękujemy! Twój e-book został wysłany na podany adres email.");
-    }, 1500);
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      toast.error("Wystąpił błąd. Prosimy spróbować ponownie.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
-  return <motion.section className="w-full px-6 md:px-8 py-12 flex justify-center" initial={{
-    opacity: 0
-  }} animate={{
-    opacity: 1
-  }} transition={{
-    duration: 0.5,
-    delay: 0.4
-  }}>
+
+  return (
+    <motion.section className="w-full px-6 md:px-8 py-12 flex justify-center" initial={{
+      opacity: 0
+    }} animate={{
+      opacity: 1
+    }} transition={{
+      duration: 0.5,
+      delay: 0.4
+    }}>
       <div className="max-w-md w-full">
         {!isSuccess ? <motion.div className="glass rounded-xl p-6 md:p-8 w-full" initial={{
         opacity: 0,
@@ -77,6 +109,24 @@ const LeadForm = () => {
                 <div>
                   <label htmlFor="email" className="sr-only">Email</label>
                   <input type="email" id="email" name="email" required placeholder="Adres email" className="input-field" value={formData.email} onChange={handleChange} />
+                </div>
+                
+                <div>
+                  <label htmlFor="phone" className="sr-only">Telefon</label>
+                  <div className="relative">
+                    <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                      <Phone size={18} className="text-aventum-gold/60" />
+                    </div>
+                    <input 
+                      type="tel" 
+                      id="phone" 
+                      name="phone" 
+                      placeholder="Numer telefonu" 
+                      className="input-field pl-10" 
+                      value={formData.phone} 
+                      onChange={handleChange} 
+                    />
+                  </div>
                 </div>
                 
                 <div>
