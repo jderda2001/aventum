@@ -181,6 +181,7 @@ const LeadForm = () => {
             </div>
           </motion.div>}
       </div>
-    </motion.section>;
+    </motion.section>
+  );
 };
 export default LeadForm;
